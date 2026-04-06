@@ -51,3 +51,17 @@ export type UpdateSubscriptionResponse = {
   trial_end: number | null;
   trial_start: number | null;
 };
+
+
+export type RetrieveCheckoutSessionInput = {
+  sessionId: string;
+  stripeAccountId: string;
+};
+
+export type RetrieveCheckoutSessionResponse = {
+  id: string;
+  status: 'open' | 'complete' | 'expired';
+  payment_status: 'paid' | 'unpaid' | 'no_payment_required';
+  url: string | null;
+  customer: string | null;
+};

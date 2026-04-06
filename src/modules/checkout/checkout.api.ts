@@ -2,6 +2,8 @@ import { HttpClient } from '../../core/https';
 import {
   CheckoutSessionResponse,
   CreateCheckoutSessionDto,
+  RetrieveCheckoutSessionInput,
+  RetrieveCheckoutSessionResponse,
   UpdateSubscriptionDto,
   UpdateSubscriptionResponse,
 } from './checkout.types';
@@ -25,5 +27,17 @@ export class CheckoutAPI {
       method: 'POST',
       body: JSON.stringify(data),
     });
+  }
+
+  retrieveSession(
+    data: RetrieveCheckoutSessionInput
+  ): Promise<RetrieveCheckoutSessionResponse> {
+    return this.http.request(
+      '/v1/payment/checkout/session/retrieve',
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }
+    );
   }
 }
