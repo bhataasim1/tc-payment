@@ -1,4 +1,4 @@
-import { MetadataParam } from "../../types/types";
+import { StripeMetaData } from "../../types/types";
 
 export type RetrievePriceInput = {
   priceId: string;
@@ -18,6 +18,6 @@ export type PriceResponse = {
   created: number;
   livemode: boolean;
   lookup_key: string | null;
-  metadata: MetadataParam;
+  metadata: StripeMetaData;
   nickname: string | null;
 };

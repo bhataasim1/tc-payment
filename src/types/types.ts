@@ -1,3 +1,7 @@
+export interface StripeMetaData {
+  [name: string]: string
+}
+
 export interface MetadataParam {
   [name: string]: string | number | null;
 }
