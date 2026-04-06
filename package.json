@@ -1,0 +1,24 @@
+{
+  "name": "tc-payment",
+  "version": "1.0.0",
+  "description": "A payment gateway library for TC Payment",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "Aasim Bhat <aasim.b@quvor.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
+  }
+}
