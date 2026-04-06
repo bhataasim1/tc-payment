@@ -16,3 +16,18 @@ export type BillingPortalSessionResponse = {
   on_behalf_of: string | null;
   return_url: string | null;
 };
+
+
+export type RetrieveInvoiceInput = {
+  invoiceId: string;
+  stripeAccountId: string;
+};
+
+export type InvoiceResponse = {
+  id: string;
+  amount_due: number;
+  currency: string;
+  status: string;
+  hosted_invoice_url: string | null;
+  invoice_pdf: string | null;
+};
