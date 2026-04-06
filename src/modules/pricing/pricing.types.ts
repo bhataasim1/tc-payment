@@ -1,0 +1,23 @@
+import { MetadataParam } from "../../types/types";
+
+export type RetrievePriceInput = {
+  priceId: string;
+  stripeAccountId: string;
+};
+
+export type PriceResponse = {
+  id: string;
+  currency: string;
+  unit_amount: number | null;
+  recurring?: {
+    interval: "day" | "week" | "month" | "year";
+    interval_count: number;
+  };
+  type: 'one_time' | 'recurring';
+  active: boolean;
+  created: number;
+  livemode: boolean;
+  lookup_key: string | null;
+  metadata: MetadataParam;
+  nickname: string | null;
+};
