@@ -1,6 +1,6 @@
 {
   "name": "tc-payment",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A payment gateway library for TC Payment",
   "main": "dist/index.js",
   "module": "dist/index.js",
