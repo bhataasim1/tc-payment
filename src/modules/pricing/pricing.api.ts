@@ -21,7 +21,7 @@ export class PricingAPI {
   retrievePrice(
     data: RetrievePriceInput
   ): Promise<PriceResponse> {
-    return this.http.request('/v1/payment/retreive-price', {
+    return this.http.request('/v1/payment/price/retrieve', {
       method: 'POST',
       body: JSON.stringify(data),
     });
