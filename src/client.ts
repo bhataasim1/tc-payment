@@ -5,6 +5,7 @@ import { ConnectAPI } from "./modules/connect/connect.api";
 import { CustomerAPI } from "./modules/customer/customer.api";
 import { PaymentsAPI } from "./modules/payments/payments.api";
 import { PricingAPI } from "./modules/pricing/pricing.api";
+import { ProductsAPI } from "./modules/products/products.api";
 
 
 export class TCPaymentSDK {
@@ -16,6 +17,7 @@ export class TCPaymentSDK {
   public customer: CustomerAPI;
   public pricing: PricingAPI;
   public payment: PaymentsAPI;
+  public product: ProductsAPI;
 
   constructor(config: HttpConfig) {
     this.http = new HttpClient(config);
@@ -26,5 +28,6 @@ export class TCPaymentSDK {
     this.customer = new CustomerAPI(this.http);
     this.pricing = new PricingAPI(this.http);
     this.payment = new PaymentsAPI(this.http);
+    this.product = new ProductsAPI(this.http);
   }
 }

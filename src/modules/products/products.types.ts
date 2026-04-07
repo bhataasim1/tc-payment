@@ -21,3 +21,13 @@ export type ProductResponse = {
   updated: number;
   url: string | null;
 };
+
+
+export type UpdateProductInput = {
+  productId: string;
+  name?: string;
+  description?: string;
+  images?: string[];
+  metadata?: Record<string, string | number | null>;
+  active?: boolean;
+};

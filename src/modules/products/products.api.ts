@@ -3,6 +3,7 @@ import { HttpClient } from '../../core/https';
 import {
   CreateProductInput,
   ProductResponse,
+  UpdateProductInput,
 } from './products.types';
 
 export class ProductsAPI {
@@ -13,6 +14,15 @@ export class ProductsAPI {
   ): Promise<ProductResponse> {
     return this.http.request('/v1/payment/product/create', {
       method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  update(
+    data: UpdateProductInput
+  ): Promise<ProductResponse> {
+    return this.http.request('/v1/payment/product/update', {
+      method: 'PATCH',
       body: JSON.stringify(data),
     });
   }
