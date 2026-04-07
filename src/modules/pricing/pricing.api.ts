@@ -3,6 +3,7 @@ import {
   CreatePriceInput,
   PriceResponse,
   RetrievePriceInput,
+  UpdatePriceInput,
 } from './pricing.types';
 
 export class PricingAPI {
@@ -22,6 +23,15 @@ export class PricingAPI {
   ): Promise<PriceResponse> {
     return this.http.request('/v1/payment/retreive-price', {
       method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  updatePrice(
+    data: UpdatePriceInput
+  ): Promise<PriceResponse> {
+    return this.http.request('/v1/payment/price/update', {
+      method: 'PATCH',
       body: JSON.stringify(data),
     });
   }

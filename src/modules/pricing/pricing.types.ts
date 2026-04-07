@@ -32,3 +32,10 @@ export type CreatePriceInput = {
   isActive: boolean;
   metadata?: Record<string, string | number | null>;
 };
+
+export type UpdatePriceInput = {
+  priceId: string;
+  stripeAccountId: string;
+  active: boolean;
+  metadata?: Record<string, string | number | null>;
+};
