@@ -1,3 +1,5 @@
+import { ApiList, Status, StripeCustomer, StripeDeletedCustomer, StripeDiscount, StripeInvoice, StripeMetaData, StripeSubscriptionItem } from "../../types/types";
+
 export type CreateBillingPortalSessionInput = {
   customer: string;
   returnUrl: string;
@@ -30,4 +32,36 @@ export type InvoiceResponse = {
   status: string;
   hosted_invoice_url: string | null;
   invoice_pdf: string | null;
+};
+
+export type RetrieveSubscriptionInput = {
+  subscriptionId: string;
+  stripeAccountId: string;
+};
+
+export type SubscriptionResponse = {
+  id: string;
+  status: Status;
+  cancel_at_period_end: boolean;
+  items: ApiList<StripeSubscriptionItem>;
+  application_fee_percent: number | null;
+  billing_cycle_anchor: number;
+  cancel_at: number | null;
+  canceled_at: number | null;
+  collection_method: "charge_automatically" | "send_invoice";
+  created: number;
+  currency: string;
+  customer: string | StripeCustomer | StripeDeletedCustomer;
+  customer_account: string | null;
+  days_until_due: number | null;
+  description: string | null;
+  discounts: Array<string | StripeDiscount>;
+  ended_at: number | null;
+  latest_invoice: string | StripeInvoice | null;
+  livemode: boolean;
+  metadata: StripeMetaData;
+  next_pending_invoice_item_invoice: number | null;
+  start_date: number;
+  trial_end: number | null;
+  trial_start: number | null;
 };

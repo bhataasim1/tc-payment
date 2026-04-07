@@ -5,6 +5,8 @@ import {
   CreateBillingPortalSessionInput,
   InvoiceResponse,
   RetrieveInvoiceInput,
+  RetrieveSubscriptionInput,
+  SubscriptionResponse,
 } from './billing.types';
 
 export class BillingAPI {
@@ -23,6 +25,15 @@ export class BillingAPI {
     data: RetrieveInvoiceInput
   ): Promise<InvoiceResponse> {
     return this.http.request('/v1/payment/invoice/retrieve', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  retrieveSubscription(
+    data: RetrieveSubscriptionInput
+  ): Promise<SubscriptionResponse> {
+    return this.http.request('/v1/payment/subscription/retrieve', {
       method: 'POST',
       body: JSON.stringify(data),
     });
