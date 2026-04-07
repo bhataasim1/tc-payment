@@ -21,3 +21,14 @@ export type PriceResponse = {
   metadata: StripeMetaData;
   nickname: string | null;
 };
+
+
+export type CreatePriceInput = {
+  productId: string;
+  unitAmount: number;
+  currency: string;
+  stripeAccountId: string;
+  recurringInterval: 'month' | 'year'; //we only support month and year
+  isActive: boolean;
+  metadata?: Record<string, string | number | null>;
+};
