@@ -65,3 +65,8 @@ export type SubscriptionResponse = {
   trial_end: number | null;
   trial_start: number | null;
 };
+
+export type CancelSubscriptionInput = {
+  subscriptionId: string;
+  stripeAccountId: string;
+};

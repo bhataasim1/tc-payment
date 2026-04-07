@@ -2,6 +2,7 @@
 import { HttpClient } from '../../core/https';
 import {
   BillingPortalSessionResponse,
+  CancelSubscriptionInput,
   CreateBillingPortalSessionInput,
   InvoiceResponse,
   RetrieveInvoiceInput,
@@ -34,6 +35,15 @@ export class BillingAPI {
     data: RetrieveSubscriptionInput
   ): Promise<SubscriptionResponse> {
     return this.http.request('/v1/payment/subscription/retrieve', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  cancelSubscription(
+    data: CancelSubscriptionInput
+  ): Promise<SubscriptionResponse> {
+    return this.http.request('/v1/payment/subscription/cancel', {
       method: 'POST',
       body: JSON.stringify(data),
     });
