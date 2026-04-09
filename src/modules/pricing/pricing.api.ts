@@ -1,9 +1,9 @@
+import { StripePriceResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
   CreatePriceInput,
-  PriceResponse,
   RetrievePriceInput,
-  UpdatePriceInput,
+  UpdatePriceInput
 } from './pricing.types';
 
 export class PricingAPI {
@@ -11,7 +11,7 @@ export class PricingAPI {
 
   createPrice(
     data: CreatePriceInput
-  ): Promise<PriceResponse> {
+  ): Promise<StripePriceResponse> {
     return this.http.request('/v1/payment/price/create', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -20,7 +20,7 @@ export class PricingAPI {
 
   retrievePrice(
     data: RetrievePriceInput
-  ): Promise<PriceResponse> {
+  ): Promise<StripePriceResponse> {
     return this.http.request('/v1/payment/price/retrieve', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -29,7 +29,7 @@ export class PricingAPI {
 
   updatePrice(
     data: UpdatePriceInput
-  ): Promise<PriceResponse> {
+  ): Promise<StripePriceResponse> {
     return this.http.request('/v1/payment/price/update', {
       method: 'PATCH',
       body: JSON.stringify(data),

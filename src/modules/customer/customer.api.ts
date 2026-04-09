@@ -1,7 +1,7 @@
+import { StripeCustomerResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
-  CreateCustomerInput,
-  CustomerResponse,
+  CreateCustomerInput
 } from './customer.types';
 
 export class CustomerAPI {
@@ -9,7 +9,7 @@ export class CustomerAPI {
 
   create(
     data: CreateCustomerInput
-  ): Promise<CustomerResponse> {
+  ): Promise<StripeCustomerResponse> {
     return this.http.request('/v1/payment/create-user', {
       method: 'POST',
       body: JSON.stringify(data),

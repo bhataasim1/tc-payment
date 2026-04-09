@@ -33,24 +33,24 @@ export type CheckoutSessionResponse = {
   url: string;
 };
 
-export type UpdateSubscriptionResponse = {
-  id: string;
-  status: "incomplete" | "incomplete_expired" | "trialing" | "active" | "past_due" | "canceled" | "unpaid" | "paused";
-  billing_cycle_anchor: number;
-  cancel_at: number | null;
-  cancel_at_period_end: boolean;
-  canceled_at: number | null;
-  created: number;
-  currency: string;
-  customer_account: string | null;
-  days_until_due: number | null;
-  description: string | null;
-  ended_at: number | null;
-  next_pending_invoice_item_invoice: number | null;
-  start_date: number;
-  trial_end: number | null;
-  trial_start: number | null;
-};
+// export type UpdateSubscriptionResponse = {
+//   id: string;
+//   status: "incomplete" | "incomplete_expired" | "trialing" | "active" | "past_due" | "canceled" | "unpaid" | "paused";
+//   billing_cycle_anchor: number;
+//   cancel_at: number | null;
+//   cancel_at_period_end: boolean;
+//   canceled_at: number | null;
+//   created: number;
+//   currency: string;
+//   customer_account: string | null;
+//   days_until_due: number | null;
+//   description: string | null;
+//   ended_at: number | null;
+//   next_pending_invoice_item_invoice: number | null;
+//   start_date: number;
+//   trial_end: number | null;
+//   trial_start: number | null;
+// };
 
 
 export type RetrieveCheckoutSessionInput = {
@@ -58,10 +58,10 @@ export type RetrieveCheckoutSessionInput = {
   stripeAccountId: string;
 };
 
-export type RetrieveCheckoutSessionResponse = {
-  id: string;
-  status: 'open' | 'complete' | 'expired';
-  payment_status: 'paid' | 'unpaid' | 'no_payment_required';
-  url: string | null;
-  customer: string | null;
-};
+// export type RetrieveCheckoutSessionResponse = {
+//   id: string;
+//   status: 'open' | 'complete' | 'expired';
+//   payment_status: 'paid' | 'unpaid' | 'no_payment_required';
+//   url: string | null;
+//   customer: string | null;
+// };

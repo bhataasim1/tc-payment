@@ -23,5 +23,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "tc-stripe-contracts": "^1.0.1"
   }
 }

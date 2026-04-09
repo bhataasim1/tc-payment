@@ -1,11 +1,9 @@
+import { StripeCheckoutSessionResponse, StripeSubscriptionResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
-  CheckoutSessionResponse,
   CreateCheckoutSessionDto,
   RetrieveCheckoutSessionInput,
-  RetrieveCheckoutSessionResponse,
-  UpdateSubscriptionDto,
-  UpdateSubscriptionResponse,
+  UpdateSubscriptionDto
 } from './checkout.types';
 
 export class CheckoutAPI {
@@ -13,7 +11,7 @@ export class CheckoutAPI {
 
   createSession(
     data: CreateCheckoutSessionDto
-  ): Promise<CheckoutSessionResponse> {
+  ): Promise<StripeCheckoutSessionResponse> {
     return this.http.request('/v1/payment/checkout/session', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -22,7 +20,7 @@ export class CheckoutAPI {
 
   updateSubscription(
     data: UpdateSubscriptionDto
-  ): Promise<UpdateSubscriptionResponse> {
+  ): Promise<StripeSubscriptionResponse> {
     return this.http.request('/v1/payment/checkout/subscription/update', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -31,7 +29,7 @@ export class CheckoutAPI {
 
   retrieveSession(
     data: RetrieveCheckoutSessionInput
-  ): Promise<RetrieveCheckoutSessionResponse> {
+  ): Promise<StripeCheckoutSessionResponse> {
     return this.http.request(
       '/v1/payment/checkout/session/retrieve',
       {

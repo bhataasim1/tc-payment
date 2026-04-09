@@ -6,12 +6,6 @@ export interface MetadataParam {
   [name: string]: string | number | null;
 }
 
-export interface ApiList<T> {
-  data: Array<T>;
-  has_more: boolean;
-  url: string;
-}
-
 export type Status =
   | 'incomplete'
   | 'incomplete_expired'
@@ -108,36 +102,36 @@ interface StripePlan {
   metadata: StripeMetaData;
 }
 
-export interface StripeCustomer {
-  id: string;
-  address?: {
-    city: string | null;
-    country: string | null;
-    line1: string | null;
-    line2: string | null;
-    postal_code: string | null;
-    state: string | null;
-  } | null;
-  balance: number;
-  business_name?: string;
-  created: number;
-  currency?: string | null;
-  customer_account?: string | null;
-  deleted?: void;
-  description: string | null;
-  email: string | null;
-  individual_name?: string;
-  invoice_credit_balance?: {
-    [key: string]: number;
-  };
-  livemode: boolean;
-  metadata: StripeMetaData;
-  name?: string | null;
-  next_invoice_sequence?: number;
-  phone?: string | null;
-  preferred_locales?: Array<string> | null;
-  subscriptions?: ApiList<StripeSubscriptionItem>;
-}
+// export interface StripeCustomer {
+//   id: string;
+//   address?: {
+//     city: string | null;
+//     country: string | null;
+//     line1: string | null;
+//     line2: string | null;
+//     postal_code: string | null;
+//     state: string | null;
+//   } | null;
+//   balance: number;
+//   business_name?: string;
+//   created: number;
+//   currency?: string | null;
+//   customer_account?: string | null;
+//   deleted?: void;
+//   description: string | null;
+//   email: string | null;
+//   individual_name?: string;
+//   invoice_credit_balance?: {
+//     [key: string]: number;
+//   };
+//   livemode: boolean;
+//   metadata: StripeMetaData;
+//   name?: string | null;
+//   next_invoice_sequence?: number;
+//   phone?: string | null;
+//   preferred_locales?: Array<string> | null;
+//   subscriptions?: ApiList<StripeSubscriptionItem>;
+// }
 
 export interface StripeDeletedCustomer {
   id: string;
@@ -145,27 +139,27 @@ export interface StripeDeletedCustomer {
   deleted: true;
 }
 
-export interface StripeDiscount {
-  id: string;
-  checkout_session: string | null;
-  customer: string | StripeCustomer | StripeDeletedCustomer | null;
-  customer_account: string | null;
-  deleted?: void;
-  end: number | null;
-  invoice: string | null;
-  invoice_item: string | null;
-  start: number;
-  subscription: string | null;
-  subscription_item: string | null;
-}
+// export interface StripeDiscount {
+//   id: string;
+//   checkout_session: string | null;
+//   customer: string | StripeCustomer | StripeDeletedCustomer | null;
+//   customer_account: string | null;
+//   deleted?: void;
+//   end: number | null;
+//   invoice: string | null;
+//   invoice_item: string | null;
+//   start: number;
+//   subscription: string | null;
+//   subscription_item: string | null;
+// }
 
-export interface StripeInvoice {
-  id: string;
-  amount_due: number;
-  currency: string;
-  hosted_invoice_url: string | null;
-  invoice_pdf: string | null;
-}
+// export interface StripeInvoice {
+//   id: string;
+//   amount_due: number;
+//   currency: string;
+//   hosted_invoice_url: string | null;
+//   invoice_pdf: string | null;
+// }
 
 
 export type PaymentMethodType =

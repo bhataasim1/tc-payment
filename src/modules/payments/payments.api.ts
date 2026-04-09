@@ -1,7 +1,7 @@
+import { StripePaymentIntentResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
-  RetrievePaymentIntentInput,
-  PaymentIntentResponse,
+  RetrievePaymentIntentInput
 } from './payments.types';
 
 export class PaymentsAPI {
@@ -9,7 +9,7 @@ export class PaymentsAPI {
 
   retrievePaymentIntent(
     data: RetrievePaymentIntentInput
-  ): Promise<PaymentIntentResponse> {
+  ): Promise<StripePaymentIntentResponse> {
     return this.http.request(
       '/v1/payment/payment-intent/retrieve',
       {

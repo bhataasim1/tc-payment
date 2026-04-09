@@ -1,9 +1,8 @@
-
+import { StripeProductResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
   CreateProductInput,
-  ProductResponse,
-  UpdateProductInput,
+  UpdateProductInput
 } from './products.types';
 
 export class ProductsAPI {
@@ -11,7 +10,7 @@ export class ProductsAPI {
 
   create(
     data: CreateProductInput
-  ): Promise<ProductResponse> {
+  ): Promise<StripeProductResponse> {
     return this.http.request('/v1/payment/product/create', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -20,7 +19,7 @@ export class ProductsAPI {
 
   update(
     data: UpdateProductInput
-  ): Promise<ProductResponse> {
+  ): Promise<StripeProductResponse> {
     return this.http.request('/v1/payment/product/update', {
       method: 'PATCH',
       body: JSON.stringify(data),

@@ -1,13 +1,10 @@
-
+import { StripeBillingPortalSessionResponse, StripeInvoice, StripeSubscriptionResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
-  BillingPortalSessionResponse,
   CancelSubscriptionInput,
   CreateBillingPortalSessionInput,
-  InvoiceResponse,
   RetrieveInvoiceInput,
-  RetrieveSubscriptionInput,
-  SubscriptionResponse,
+  RetrieveSubscriptionInput
 } from './billing.types';
 
 export class BillingAPI {
@@ -15,7 +12,7 @@ export class BillingAPI {
 
   createPortalSession(
     data: CreateBillingPortalSessionInput
-  ): Promise<BillingPortalSessionResponse> {
+  ): Promise<StripeBillingPortalSessionResponse> {
     return this.http.request('/v1/payment/billing-portal/create', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -24,7 +21,7 @@ export class BillingAPI {
 
   retrieveInvoice(
     data: RetrieveInvoiceInput
-  ): Promise<InvoiceResponse> {
+  ): Promise<StripeInvoice> {
     return this.http.request('/v1/payment/invoice/retrieve', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -33,7 +30,7 @@ export class BillingAPI {
 
   retrieveSubscription(
     data: RetrieveSubscriptionInput
-  ): Promise<SubscriptionResponse> {
+  ): Promise<StripeSubscriptionResponse> {
     return this.http.request('/v1/payment/subscription/retrieve', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -42,7 +39,7 @@ export class BillingAPI {
 
   cancelSubscription(
     data: CancelSubscriptionInput
-  ): Promise<SubscriptionResponse> {
+  ): Promise<StripeSubscriptionResponse> {
     return this.http.request('/v1/payment/subscription/cancel', {
       method: 'POST',
       body: JSON.stringify(data),

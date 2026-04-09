@@ -1,14 +1,10 @@
 
+import { StripeAccountLinkResponse, StripeAccountResponse, StripeBalanceResponse, StripeDeletedAccountResponse } from 'tc-stripe-contracts';
 import { HttpClient } from '../../core/https';
 import {
-  AccountBalanceResponse,
   AccountIdInput,
-  ConnectAccountResponse,
   CreateConnectAccountInput,
-  CreateConnectAccountResponse,
-  CreateOnboardingLinkInput,
-  CreateOnboardingLinkResponse,
-  DeleteAccountResponse,
+  CreateOnboardingLinkInput
 } from './connect.types';
 
 export class ConnectAPI {
@@ -16,7 +12,7 @@ export class ConnectAPI {
 
   createAccount(
     data: CreateConnectAccountInput
-  ): Promise<CreateConnectAccountResponse> {
+  ): Promise<StripeAccountResponse> {
     return this.http.request('/v1/payment/connect-account', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -25,7 +21,7 @@ export class ConnectAPI {
 
   createOnboardingLink(
     data: CreateOnboardingLinkInput
-  ): Promise<CreateOnboardingLinkResponse> {
+  ): Promise<StripeAccountLinkResponse> {
     return this.http.request(
       '/v1/payment/connect-account/onboarding-link',
       {
@@ -37,7 +33,7 @@ export class ConnectAPI {
 
   getBalance(
     data: AccountIdInput
-  ): Promise<AccountBalanceResponse> {
+  ): Promise<StripeBalanceResponse> {
     return this.http.request(
       '/v1/payment/connect-account/balance',
       {
@@ -49,7 +45,7 @@ export class ConnectAPI {
 
   retrieveAccount(
     data: AccountIdInput
-  ): Promise<ConnectAccountResponse> {
+  ): Promise<StripeAccountResponse> {
     return this.http.request(
       '/v1/payment/connect-account/retrieve',
       {
@@ -61,7 +57,7 @@ export class ConnectAPI {
 
   deleteAccount(
     data: AccountIdInput
-  ): Promise<DeleteAccountResponse> {
+  ): Promise<StripeDeletedAccountResponse> {
     return this.http.request(
       '/v1/payment/connect-account/delete',
       {
