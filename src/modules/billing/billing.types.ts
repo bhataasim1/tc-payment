@@ -67,4 +67,5 @@ export type RetrieveSubscriptionInput = {
 export type CancelSubscriptionInput = {
   subscriptionId: string;
   stripeAccountId: string;
+  params?: { invoice_now?: boolean, prorate?: boolean };
 };
