@@ -5,6 +5,7 @@ export type CreateProductInput = {
   description?: string;
   images?: string[];
   metadata?: StripeMetaData;
+  stripeAccountId: string;
 };
 
 // export type ProductResponse = {
@@ -30,4 +31,5 @@ export type UpdateProductInput = {
   images?: string[];
   metadata?: Record<string, string | number | null>;
   active?: boolean;
+  stripeAccountId: string;
 };
